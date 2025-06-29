@@ -1,1 +1,0 @@
-{"version":1,"contracts":[{"id":"v8m46vjp02c8s","package_name":"prove_test","contract_name":"ProveSquare","module_path":"prove_test::prove_square::ProveSquare","artifacts":{"sierra":"prove_test_ProveSquare.contract_class.json","casm":null}}]}
