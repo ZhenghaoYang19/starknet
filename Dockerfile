@@ -13,7 +13,7 @@ RUN apt update && apt install -y \
     unzip \
     nodejs \
     npm \
-    python3.10 \
+    python3 \
     python3-pip \
     jq \
     wget \

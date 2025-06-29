@@ -11,9 +11,16 @@ prove_test/
 │   ├── src/test.nr         # 测试用例
 │   ├── Nargo.toml          # Noir 配置
 │   └── Prover.toml         # 测试输入 (x=5, y=2)
-├── verifier/               # Cairo 验证器合约
-│   ├── src/                # 验证器源代码
-│   └── Scarb.toml
+├── contracts/              # Cairo 合约
+│   ├── verifier/           # 验证器合约
+│   │   ├── src/
+│   │   │   ├── lib.cairo
+│   │   │   ├── honk_verifier.cairo
+│   │   │   ├── honk_verifier_circuits.cairo
+│   │   │   └── honk_verifier_constants.cairo
+│   │   └── Scarb.toml
+│   ├── Scarb.toml
+│   └── snfoundry.toml
 ├── src/
 │   ├── lib.cairo
 │   └── prove_square.cairo  # 主合约
@@ -99,31 +106,28 @@ fn main(x: Field, y: pub Field) {
 
 ### 1. 编译电路
 ```bash
-cd circuit
-nargo build
+cd circuit && nargo build
 ```
 
 ### 2. 运行测试
 ```bash
-cd circuit
-nargo test
+cd circuit && nargo test
 ```
 
 ### 3. 生成证明
 ```bash
-cd circuit
-nargo prove
+cd circuit && nargo prove
 ```
 
 ### 4. 生成验证密钥
 ```bash
-cd circuit
-nargo write_vk
+cd circuit && nargo write_vk
 ```
 
-### 5. 编译 Cairo 合约
+### 5. 编译合约
 ```bash
 scarb build
+cd contracts/verifier && scarb build
 ```
 
 ## 零知识证明原理
